@@ -1,3 +1,9 @@
+openhrp (3.1.9-1ubuntu2) unstable; urgency=medium
+
+  * Rebuild to propagate OpenRTM flags removal
+
+ -- Pierre Gergondet <pierre.gergondet+ppa@gmail.com>  Mon, 30 Dec 2019 12:45:34 +0800
+
 openhrp (3.1.9-1ubuntu1) unstable; urgency=medium
 
   * Bump upstream version

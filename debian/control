@@ -10,7 +10,7 @@ Homepage: http://www.openrtp.jp/openhrp3/en/index.html
 
 Package: openhrp
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, liblapack-dev, libblas-dev, libjpeg-dev, libpng-dev, libboost-signals-dev | libpng-dev, libboost-regex-dev, libboost-program-options-dev, libboost-filesystem-dev
+Depends: ${shlibs:Depends}, ${misc:Depends}, liblapack-dev, libblas-dev, libjpeg-dev, libpng-dev, libboost-all-dev
 Description: Open Architecture Human-centered Robotics Platform version 3
   OpenHRP3 is an integrated software platform for robot simulations and
   software developments. It allows the users to inspect an original robot

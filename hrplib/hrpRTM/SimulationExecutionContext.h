@@ -11,8 +11,8 @@ namespace RTC
   class SimulationExecutionContext : public virtual OpenHRPExecutionContext
   {
   public:
-    virtual ReturnCode_t start() throw (CORBA::SystemException);
-    virtual ReturnCode_t stop() throw (CORBA::SystemException);
+    virtual ReturnCode_t start();
+    virtual ReturnCode_t stop();
     static OpenHRP::ClockGenerator_var m_cg;
   };
 };

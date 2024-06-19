@@ -6,7 +6,7 @@
 
 namespace RTC
 {
-  ReturnCode_t SimulationExecutionContext::start() throw (CORBA::SystemException)
+  ReturnCode_t SimulationExecutionContext::start()
   {
 
     ReturnCode_t ret = OpenHRPExecutionContext::start();
@@ -19,7 +19,7 @@ namespace RTC
   }
 
 
-  ReturnCode_t SimulationExecutionContext::stop() throw (CORBA::SystemException)
+  ReturnCode_t SimulationExecutionContext::stop()
   {
 #if (defined(OPENRTM_VERSION042) || defined(OPENRTM_VERSION110)) && !defined(OPENRTM_VERSION_TRUNK)
     if (!m_running) return RTC::PRECONDITION_NOT_MET;

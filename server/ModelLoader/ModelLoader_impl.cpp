@@ -157,7 +157,6 @@ static void changetoBoundingBox(POA_OpenHRP::BodyInfo* bodyInfo, unsigned int* d
 }
 
 BodyInfo_ptr ModelLoader_impl::loadBodyInfo(const char* url)
-    throw (CORBA::SystemException, OpenHRP::ModelLoader::ModelLoaderException)
 {
     OpenHRP::ModelLoader::ModelLoadOption option;
     option.readImage = false;
@@ -168,7 +167,6 @@ BodyInfo_ptr ModelLoader_impl::loadBodyInfo(const char* url)
 }
 
 BodyInfo_ptr ModelLoader_impl::loadBodyInfoEx(const char* url, const OpenHRP::ModelLoader::ModelLoadOption& option)
-    throw (CORBA::SystemException, OpenHRP::ModelLoader::ModelLoaderException)
 {
     POA_OpenHRP::BodyInfo* bodyInfo = loadBodyInfoFromModelFile(replaceProjectDir(std::string(url)), option);
     if(option.AABBdata.length()){
@@ -184,7 +182,6 @@ BodyInfo_ptr ModelLoader_impl::loadBodyInfoEx(const char* url, const OpenHRP::Mo
 }
 
 BodyInfo_ptr ModelLoader_impl::getBodyInfoEx(const char* url0, const OpenHRP::ModelLoader::ModelLoadOption& option)
-    throw (CORBA::SystemException, OpenHRP::ModelLoader::ModelLoaderException)
 {
     string url(url0);
 
@@ -217,7 +214,6 @@ BodyInfo_ptr ModelLoader_impl::getBodyInfoEx(const char* url0, const OpenHRP::Mo
 }
 
 BodyInfo_ptr ModelLoader_impl::getBodyInfo(const char* url)
-    throw (CORBA::SystemException, OpenHRP::ModelLoader::ModelLoaderException)
 {
     OpenHRP::ModelLoader::ModelLoadOption option;
     option.readImage = false;
@@ -282,7 +278,6 @@ POA_OpenHRP::BodyInfo* ModelLoader_impl::loadBodyInfoFromModelFile(const string 
 
 
 SceneInfo_ptr ModelLoader_impl::loadSceneInfo(const char* url)
-    throw (CORBA::SystemException, OpenHRP::ModelLoader::ModelLoaderException)
 {
     cout << "loading " << url << endl;
 

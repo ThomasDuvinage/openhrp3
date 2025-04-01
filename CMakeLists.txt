@@ -10,7 +10,7 @@
 # @author Shin'ichiro Nakaoka
 
 
-cmake_minimum_required(VERSION 2.4)
+cmake_minimum_required(VERSION 3.5)
 
 if( NOT WIN32)
   if(COMMAND cmake_policy)

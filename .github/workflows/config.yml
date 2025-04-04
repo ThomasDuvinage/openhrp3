@@ -16,6 +16,8 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-20.04, ubuntu-22.04, ubuntu-24.04]
+        build-type: [RelWithDebInfo]
+        compiler: [gcc, clang]
 
     steps:
       - name: Install ROS
@@ -26,6 +28,12 @@ jobs:
 
       - name: Checkout project
         uses: actions/checkout@v4
+
+      - name: Build project
+        uses: jrl-umi3218/github-actions/build-cmake-project@master
+        with:
+          compiler: ${{ matrix.compiler }}
+          build-type: ${{ matrix.build-type }}
 
 
       # - name: Run test

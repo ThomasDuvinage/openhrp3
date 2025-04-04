@@ -25,12 +25,18 @@ jobs:
         with:
           ros: |
             apt: ros-base
+
       - name: Install dependencies
         uses: jrl-umi3218/github-actions/install-dependencies@master
         with:
           ubuntu: |
             apt: f2c libopencv-dev libf2c2 libf2c2-dev doxygen cmake libeigen3-dev libjpeg-dev jython libatlas-base-dev libboost-all-dev libpng-dev omniorb libomniorb4-dev
 
+      - name: Install openrtm2
+        run: |
+          sed -e 
+          sed -x
+          bash <(curl -s https://raw.githubusercontent.com/OpenRTM/OpenRTM-aist/master/scripts/openrtm2_install_ubuntu.sh)
       - name: Checkout project
         uses: actions/checkout@v4
 

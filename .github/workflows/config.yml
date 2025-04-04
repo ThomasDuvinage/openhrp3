@@ -34,8 +34,8 @@ jobs:
 
       - name: Install openrtm2
         run: |
-          sed -e 
-          sed -x
+          set -e 
+          set -x
           bash <(curl -s https://raw.githubusercontent.com/OpenRTM/OpenRTM-aist/master/scripts/openrtm2_install_ubuntu.sh)
       - name: Checkout project
         uses: actions/checkout@v4

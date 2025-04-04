@@ -29,7 +29,7 @@ jobs:
         uses: jrl-umi3218/github-actions/install-dependencies@master
         with:
           ubuntu: |
-            apt: f2c libopencv-dev libf2c2 libf2c2-dev doxygen cmake libeigen3-dev libjpeg-dev jython libatlas-base-dev libboost-all-dev libpng-dev
+            apt: f2c libopencv-dev libf2c2 libf2c2-dev doxygen cmake libeigen3-dev libjpeg-dev jython libatlas-base-dev libboost-all-dev libpng-dev omniorb
 
       - name: Checkout project
         uses: actions/checkout@v4

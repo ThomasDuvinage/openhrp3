@@ -48,14 +48,11 @@ jobs:
           set -x
           chmod +x $GITHUB_WORKSPACE/test/start_omninames.sh
           $GITHUB_WORKSPACE/test/start_omninames.sh 
-
-      - name: Run openhrp-model-loader
+ 
+      - name: Run unit tests for modelloader
         run: |
           set -x
           openhrp-model-loader -ORBInitRef NameService=corbaloc:iiop:localhost:2809/NameService &
-          
-      - name: Run unit tests for modelloader
-        run: |
           cd $GITHUB_WORKSPACE/test
           python -m unittest test_modelloader.py
       

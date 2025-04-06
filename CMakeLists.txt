@@ -10,7 +10,7 @@
 # @author Shin'ichiro Nakaoka
 
 
-cmake_minimum_required(VERSION 2.4)
+cmake_minimum_required(VERSION 3.5)
 
 if( NOT WIN32)
   if(COMMAND cmake_policy)
@@ -309,7 +309,7 @@ if(UNIX)
     set(OPENRTM_IDL_DIR "${OPENRTM_DIR}/include/rtm/idl")
   endif()
 elseif(WIN32)
-  if(OPENRTM_VERSION STREQUAL OPENRTM_VERSION042)
+  if(OPENRTM_VERSION STREQUAL OPENRTM_VERSION042) 
     set(OPENRTM_IDL_DIR "${OPENHRP_RTM_IDL_DIR}")
   else()
     set(OPENRTM_IDL_DIR "${OPENRTM_DIR}/rtm/idl")

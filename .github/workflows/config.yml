@@ -42,11 +42,20 @@ jobs:
           compiler: ${{ matrix.compiler }}
           build-type: ${{ matrix.build-type }}
 
-
-      - name: Run test
+      - name: Start OmniNames
         shell: bash
         run: |
           set -x
+          chmod +x $GITHUB_WORKSPACE/openhrp3/test/start_omninames.sh
+          $GITHUB_WORKSPACE/openhrp3/test/start_omninames.sh 
+
+      - name: Run openhrp-model-loader
+        run: |
+          set -x
           openhrp-model-loader -ORBInitRef NameService=corbaloc:iiop:localhost:2809/NameService
-          python -m unittest $GITHUB_WORKSPACE/openhrp3/test/test_modelloader.py 
-          python -m unittest $GITHUB_WORKSPACE/openhrp3/test/test_openhrp3.py
+          
+      - name: Run unit tests for modelloader
+        run: python -m unittest $GITHUB_WORKSPACE/openhrp3/test/test_modelloader.py
+      
+      - name: Run unit tests for openhrp3
+        run: python -m unittest $GITHUB_WORKSPACE/openhrp3/test/test_openhrp3.py

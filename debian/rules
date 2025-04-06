@@ -13,4 +13,28 @@
 	dh $@ --parallel
 
 override_dh_auto_configure:
+	# Check if OpenRTM is already installed
+	if ! command -v rtm2-config &> /dev/null; then \
+		echo "OpenRTM not found. Starting installation..."; \
+		
+		# Download the OpenRTM installation script
+		curl -s -o /tmp/openrtm2_install_ubuntu.sh https://raw.githubusercontent.com/OpenRTM/OpenRTM-aist/master/scripts/openrtm2_install_ubuntu.sh; \
+		if [ $$? -ne 0 ]; then \
+			echo "Failed to download the openrtm2 installation script"; \
+			exit 1; \
+		fi; \
+		# Execute the installation script
+		bash -c "yes | bash /tmp/openrtm2_install_ubuntu.sh"; \
+		if [ $$? -ne 0 ]; then \
+			echo "OPENRTM2 installation script failed to execute"; \
+			exit 1; \
+		fi; \
+		# Modify /usr/bin/rtm2-config
+		sudo sed -i "s/dl rt Threads::Threads/-ldl -lrt/g" /usr/bin/rtm2-config; \
+		sudo sed -i "s/-lrtmCamera -lrtmManipulator//g" /usr/bin/rtm2-config; \
+	else \
+		echo "OpenRTM already found. Skipping installation."; \
+	fi
+
+	# Proceed with default dh_auto_configure after OpenRTM is installed
 	dh_auto_configure -- -DENABLE_DOCUMENTS_GENERATE=ON

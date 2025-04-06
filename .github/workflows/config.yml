@@ -43,10 +43,10 @@ jobs:
           build-type: ${{ matrix.build-type }}
 
 
-      # - name: Run test
-      #   shell: bash
-      #   run: |
-      #     set -x
-      #     export ROS_DISTRO=${{ matrix.ROS_DISTRO }}
-      #     ls -al
-      #     . ./.travis.sh
+      - name: Run test
+        shell: bash
+        run: |
+          set -x
+          openhrp-model-loader -ORBInitRef NameService=corbaloc:iiop:localhost:2809/NameService
+          python -m unittest $GITHUB_WORKSPACE/openhrp3/test/test_modelloader.py 
+          python -m unittest $GITHUB_WORKSPACE/openhrp3/test/test_openhrp3.py

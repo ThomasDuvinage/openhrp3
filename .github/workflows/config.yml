@@ -55,7 +55,11 @@ jobs:
           openhrp-model-loader -ORBInitRef NameService=corbaloc:iiop:localhost:2809/NameService &
           
       - name: Run unit tests for modelloader
-        run: python -m unittest $GITHUB_WORKSPACE/test/test_modelloader.py
+        run: |
+          cd $GITHUB_WORKSPACE/test
+          python -m unittest test_modelloader.py
       
       - name: Run unit tests for openhrp3
-        run: python -m unittest $GITHUB_WORKSPACE/test/test_openhrp3.py
+        run: |
+          cd $GITHUB_WORKSPACE/test
+          python -m unittest test_openhrp3.py

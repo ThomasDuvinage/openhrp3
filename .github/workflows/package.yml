@@ -11,10 +11,12 @@ jobs:
     uses: jrl-umi3218/github-actions/.github/workflows/package-project.yml@master
     with:
       update-stable-and-head: true
+      with-openrtm2: true
+
       # deps: '["gergondet/hrpsys-base"]' # TODO reset this when hrpsys-base CI will be fixed
       matrix: |
           {
-            "dist": ["focal", "jammy"],
+            "dist": ["focal", "jammy", "noble"],
             "arch": ["amd64"]
           }
     secrets:
